@@ -1,9 +1,16 @@
 // MainContent.jsx
 function MainContent() {
   return (
-    <main>
-      <p>I love to visit New York, Paris, and Tokyo.</p>
-    </main>
+    <div
+      style={{
+        backgroundColor: "lightblue",
+        padding: "20px",
+        borderRadius: "8px",
+      }}
+    >
+      <h1>Welcome to Main Content</h1>
+      <p>This is the main content area of the application.</p>
+    </div>
   );
 }
 
