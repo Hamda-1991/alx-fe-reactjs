@@ -4,6 +4,8 @@ import RecipeList from "./components/RecipeList";
 import RecipeDetails from "./components/RecipeDetails";
 import AddRecipeForm from "./components/AddRecipeForm";
 import SearchBar from "./components/SearchBar"; // Import the SearchBar component
+import FavoritesList from "./components/FavoritesList"; // Import FavoritesList
+import RecommendationsList from "./components/RecommendationsList";
 
 const App = () => {
   return (
@@ -11,7 +13,8 @@ const App = () => {
       <div>
         {/* Add the SearchBar component for searching */}
         <SearchBar />
-
+        <FavoritesList /> {/* Display favorite recipes */}
+        <RecommendationsList /> {/* Display recommendations */}
         <Routes>
           <Route path="/" element={<RecipeList />} />
           <Route path="/add-recipe" element={<AddRecipeForm />} />

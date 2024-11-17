@@ -7,12 +7,22 @@ const RecipeList = () => {
   const filteredRecipes = useRecipeStore((state) => state.filteredRecipes); // Use filtered recipes
   const searchTerm = useRecipeStore((state) => state.searchTerm); // Get the search term
   const recipes = useRecipeStore((state) => state.recipes); // Get the complete list of recipes
-  const filterRecipes = useRecipeStore((state) => state.filterRecipes); // Action to filter recipes
+  const addFavorite = useRecipeStore((state) => state.addFavorite); // Action to add to favorites
+  const removeFavorite = useRecipeStore((state) => state.removeFavorite); // Action to remove from favorites
+  const favorites = useRecipeStore((state) => state.favorites); // Get current favorites
 
   // Automatically filter recipes whenever the search term or recipes list changes
   useEffect(() => {
     filterRecipes(); // Filter the recipes based on the current search term
-  }, [searchTerm, recipes, filterRecipes]); // Dependencies ensure filtering happens when either search term or recipes change
+  }, [searchTerm, recipes]);
+
+  const handleFavoriteToggle = (recipeId) => {
+    if (favorites.includes(recipeId)) {
+      removeFavorite(recipeId); // Remove from favorites if already added
+    } else {
+      addFavorite(recipeId); // Add to favorites
+    }
+  };
 
   return (
     <div>
@@ -23,10 +33,15 @@ const RecipeList = () => {
               <Link to={`/recipe/${recipe.id}`}>{recipe.title}</Link>
             </h3>
             <p>{recipe.description}</p>
+            <button onClick={() => handleFavoriteToggle(recipe.id)}>
+              {favorites.includes(recipe.id)
+                ? "Remove from Favorites"
+                : "Add to Favorites"}
+            </button>
           </div>
         ))
       ) : (
-        <p>No recipes found.</p> // Display a message if no recipes match the search
+        <p>No recipes found.</p>
       )}
     </div>
   );
