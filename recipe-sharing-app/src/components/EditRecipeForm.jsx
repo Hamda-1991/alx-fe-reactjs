@@ -1,29 +1,46 @@
-// src/components/EditRecipeForm.jsx
-import { useState } from "react";
-import useRecipeStore from "./recipeStore";
+import React, { useState } from "react";
+import useRecipeStore from "../store/recipeStore"; // Ensure this is correct
 
-const EditRecipeForm = ({ recipe }) => {
-  const updateRecipe = useRecipeStore((state) => state.updateRecipe);
-  const [title, setTitle] = useState(recipe.title);
-  const [description, setDescription] = useState(recipe.description);
+const EditRecipeForm = ({ recipeId, initialRecipeData }) => {
+  const { updateRecipe } = useRecipeStore(); // Use store methods
+  const [recipeData, setRecipeData] = useState(initialRecipeData);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    updateRecipe(recipe.id, { title, description });
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevent the default form submission behavior
+    // Update the recipe data in the store
+    updateRecipe(recipeId, recipeData);
+    // Optionally, reset or close the form
+    console.log("Recipe updated", recipeData);
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setRecipeData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <textarea
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      />
-      <button type="submit">Save Changes</button>
+      <label>
+        Recipe Name:
+        <input
+          type="text"
+          name="name"
+          value={recipeData.name}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        Ingredients:
+        <textarea
+          name="ingredients"
+          value={recipeData.ingredients}
+          onChange={handleChange}
+        />
+      </label>
+      <button type="submit">Save Recipe</button>
     </form>
   );
 };
