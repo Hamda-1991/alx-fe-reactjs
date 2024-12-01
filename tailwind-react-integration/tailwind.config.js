@@ -1,9 +1,9 @@
 export default {
-  content: [
+  purge: [
     "./src/**/*.{js,jsx,ts,tsx}",
     "./public/index.html"
   ],
-  darkMode: false, // Set to 'media' or 'class' if you want dark mode support
+  darkMode: false, // 'media' or 'class'
   theme: {
     extend: {},
   },
