@@ -70,3 +70,38 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+@layer utilities {
+  .user-profile-sm {
+    @apply p-4 max-w-xs;
+  }
+  .user-profile-md {
+    @apply p-6 max-w-sm;
+  }
+  .user-profile-lg {
+    @apply p-8 max-w-sm;
+  }
+  .user-profile-img-sm {
+    @apply w-24 h-24;
+  }
+  .user-profile-img-md {
+    @apply w-28 h-28;
+  }
+  .user-profile-img-lg {
+    @apply w-36 h-36;
+  }
+  .user-profile-heading-sm {
+    @apply text-lg;
+  }
+  .user-profile-heading-md {
+    @apply text-xl;
+  }
+  .user-profile-heading-lg {
+    @apply text-2xl;
+  }
+  .user-profile-paragraph-sm {
+    @apply text-sm;
+  }
+  .user-profile-paragraph-md {
+    @apply text-base;
+  }
+}
