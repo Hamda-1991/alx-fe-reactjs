@@ -1,29 +1,28 @@
-// AddTodoForm.jsx
+// src/AddTodoForm.jsx
 import React, { useState } from "react";
 
 const AddTodoForm = ({ addTodo }) => {
-  const [todoText, setTodoText] = useState("");
+  const [inputValue, setInputValue] = useState("");
 
-  const handleChange = (e) => {
-    setTodoText(e.target.value);
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleFormSubmit = (e) => {
     e.preventDefault();
-    if (todoText.trim()) {
-      addTodo(todoText); // Calls the addTodo function passed as a prop
-      setTodoText(""); // Clear the input after submitting
+    if (inputValue.trim()) {
+      addTodo(inputValue);
+      setInputValue(""); // Clear the input after submission
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleFormSubmit}>
       <input
         type="text"
-        value={todoText}
-        onChange={handleChange}
-        placeholder="Enter a new todo"
-        required
+        value={inputValue}
+        onChange={handleInputChange}
+        placeholder="Add a new todo"
       />
       <button type="submit">Add Todo</button>
     </form>

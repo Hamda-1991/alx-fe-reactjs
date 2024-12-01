@@ -1,4 +1,4 @@
-// App.jsx
+// src/App.jsx
 import React, { useState } from "react";
 import AddTodoForm from "./AddTodoForm";
 
@@ -6,7 +6,9 @@ const App = () => {
   const [todos, setTodos] = useState([]);
 
   const addTodo = (todoText) => {
-    setTodos([...todos, { text: todoText, id: Date.now() }]);
+    if (todoText.trim()) {
+      setTodos([...todos, { text: todoText, id: Date.now() }]);
+    }
   };
 
   return (
