@@ -1,3 +1,4 @@
+// src/App.jsx
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Home from "./pages/Home";
@@ -6,8 +7,6 @@ import BlogPost from "./pages/BlogPost";
 import Login from "./pages/Login";
 
 const App = () => {
-  const isAuthenticated = false; // Simulate authentication status
-
   return (
     <BrowserRouter>
       <div>
@@ -20,7 +19,7 @@ const App = () => {
           <Route
             path="/profile/*"
             element={
-              <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <ProtectedRoute>
                 <Profile />
               </ProtectedRoute>
             }

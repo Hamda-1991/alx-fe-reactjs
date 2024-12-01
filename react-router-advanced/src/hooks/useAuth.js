@@ -1,23 +1,19 @@
 // src/hooks/useAuth.js
-import { useState } from 'react';
+import { useState, useEffect } from "react";
 
+// Simulating authentication check, in a real-world app, you'd check a token or API
 const useAuth = () => {
-  // Simulate a simple authentication logic
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const login = () => {
-    setIsAuthenticated(true);
-  };
+  useEffect(() => {
+    // Simulate checking for a valid authentication token or session
+    const token = localStorage.getItem("authToken");
+    if (token) {
+      setIsAuthenticated(true);
+    }
+  }, []);
 
-  const logout = () => {
-    setIsAuthenticated(false);
-  };
-
-  return {
-    isAuthenticated,
-    login,
-    logout,
-  };
+  return isAuthenticated;
 };
 
 export default useAuth;
