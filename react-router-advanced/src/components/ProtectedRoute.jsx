@@ -1,20 +1,20 @@
-import PropTypes from "prop-types";
+// src/components/ProtectedRoute.jsx
+
 import { Navigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const ProtectedRoute = ({ isAuthenticated, children }) => {
   if (!isAuthenticated) {
-    // If not authenticated, redirect to login page
-    return <Navigate to="/login" />;
+    return <Navigate to="/login" replace />;
   }
 
-  // If authenticated, return the children components (Profile, etc.)
   return children;
 };
 
-// PropTypes validation for the component props
+// PropTypes validation
 ProtectedRoute.propTypes = {
-  isAuthenticated: PropTypes.bool.isRequired, // `isAuthenticated` should be a boolean
-  children: PropTypes.node.isRequired, // `children` can be any valid React node (elements, strings, etc.)
+  isAuthenticated: PropTypes.bool.isRequired, // isAuthenticated should be a boolean
+  children: PropTypes.node.isRequired, // children can be any valid React node
 };
 
 export default ProtectedRoute;

@@ -2,11 +2,11 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
-import BlogPost from "./pages/BlogPost"; // Make sure BlogPost component is imported
+import BlogPost from "./pages/BlogPost";
 import Login from "./pages/Login";
 
 const App = () => {
-  const isAuthenticated = false; // Simulate authentication
+  const isAuthenticated = false; // Simulate authentication status
 
   return (
     <BrowserRouter>
@@ -25,8 +25,7 @@ const App = () => {
               </ProtectedRoute>
             }
           />
-          <Route path="/blog/:id" element={<BlogPost />} />{" "}
-          {/* Correctly add this route */}
+          <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </div>
