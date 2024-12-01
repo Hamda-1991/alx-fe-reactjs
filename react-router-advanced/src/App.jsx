@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Home from "./pages/Home";
-import Profile from "./pages/Profile";
+import Profile from "./components/Profile";
 import BlogPost from "./pages/BlogPost";
 import Login from "./pages/Login";
 
