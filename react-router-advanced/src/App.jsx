@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Home from "./pages/Home";
-import Profile from "./components/Profile";
-import BlogPost from "./pages/BlogPost";
+import Profile from "./pages/Profile";
+import BlogPost from "./pages/BlogPost"; // Make sure BlogPost component is imported
 import Login from "./pages/Login";
 
 const App = () => {
@@ -25,7 +25,8 @@ const App = () => {
               </ProtectedRoute>
             }
           />
-          <Route path="/blog/:postId" element={<BlogPost />} />
+          <Route path="/blog/:id" element={<BlogPost />} />{" "}
+          {/* Correctly add this route */}
           <Route path="/login" element={<Login />} />
         </Routes>
       </div>
