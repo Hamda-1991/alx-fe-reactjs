@@ -37,6 +37,14 @@ const HomePage = () => {
           </div>
         ))}
       </div>
+      <div className="text-center mt-4">
+        <Link
+          to="/add-recipe"
+          className="inline-block bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600"
+        >
+          Add a New Recipe
+        </Link>
+      </div>
     </div>
   );
 };
