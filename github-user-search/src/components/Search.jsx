@@ -20,7 +20,7 @@ function Search() {
       const data = await fetchUserData(query); // Fetch data from API
       setUserData(data); // Set user data on success
     } catch {
-      setError("Looks like we can't find the user.");
+      setError("Looks like we cant find the user");
     } finally {
       setLoading(false); // Set loading to false once the request is completed
     }
