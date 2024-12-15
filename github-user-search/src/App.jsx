@@ -1,4 +1,5 @@
 import SearchInput from "./components/SearchInput.jsx";
+import Search from "./components/Search.jsx";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
     >
       <h1>GitHub User Search Application</h1>
       <SearchInput />
+      <Search />
     </div>
   );
 }
